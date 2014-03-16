@@ -1,0 +1,76 @@
+void findorMakeVertex (vertex_t **vtxhead, char *v1_name, char *v2_name, int weight) {
+
+	vertex_t *v;
+	v = *vtxhead;
+
+	while (1) {
+	 if (v != NULL) {	
+	  
+	  if (strcmp((v->name), v1_name) == 0) { //Will execute if the first vertex exists and the second one doesn't
+
+		vertex_t *v1;
+		v1 = (vertex_t *) malloc(sizeof(vertex_t));
+		v1->name = v2_name;
+		v1->next = NULL;
+		
+		vertex_t *findLastV;
+		findLastV = v;
+
+		while (1) {
+		if (findLastV->next != NULL) {
+			findLastV = findLastV->next; 
+		} //end if
+		else break;
+		} //end while
+
+		findLastV->next = v1;
+		
+		addAdjVertex(v, v1, weight); //adds v1 to v's adj_list
+
+		addAdjVertex(v1, v, weight); //adds v to v1's adj_list
+		
+		break;
+	  } //end inner-if 
+	  else v = v->next;
+	} //end outer-if 
+	
+
+       else { //Will execute if the first vertex doesn't exist and the second one does
+		vertex_t *v1;
+	  	v1 = (vertex_t *) malloc(sizeof(vertex_t));
+		v1->name = v1_name;
+		v1->next = NULL;
+
+		vertex_t *findLastV;
+		findLastV = *vtxhead;
+
+		while (1) { //finds last vertex
+		if (findLastV->next != NULL) {
+			findLastV = findLastV->next; 
+		} //end if
+		else break;
+		} //end while
+
+		findLastV->next = v1;
+		
+		vertex_t *v2;
+		v2 = *vtxhead;
+
+		while (1) { //finding where the existing vertex is
+		if (v2 != NULL) {
+		if (strcmp((v2->name), v2_name) == 0) {
+			break;
+		}//end inner-if
+		else v2 = v2->next;
+		}
+		}//end while
+		
+		addAdjVertex(v2, v1, weight); //adds v1 to v2's adj list
+
+		addAdjVertex(v1, v2, weight); //adds v2 to v1's adj list
+
+		break;				
+	    }
+	} //end out else
+}
+

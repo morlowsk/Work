@@ -1,0 +1,10 @@
+//Symbol Name		Page Address
+//----------------	------------
+//	aloop                   3004
+//	done                    300B
+//	mask                    3012
+//	modorig                 3014
+//	numsft                  3011
+//	orgbit                  3010
+//	pos                     3009
+//	spill                   3013

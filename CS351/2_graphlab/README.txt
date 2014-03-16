@@ -1,0 +1,3 @@
+1. The compiler says that I have a warning that vhead may be uninitialized. This warning is intentional on my part as I am making my "top of the list pointer" (which is vhead, or *vhead more accurately) initialized the first time when add_edge is called. 
+
+2. The output for finding the tour has a small (weird) output bug in it. As I am trying to find all possible tours within the graph, the times when the graph can't find a tour at a particular vertex, it mistakenly outputs a different vertex although it is essentially giving the correct description of being or not being able to find a tour at that particular vertex.
