@@ -1,0 +1,11 @@
+Code seg faults and crashes the driver 0/80
+-Scott
+
+fourier:6_malloclab$ ./mdriver -V                          
+Using default tracefiles in ./traces/
+Measuring performance with the interval timer.
+
+Testing mm malloc
+Reading tracefile: amptjp-bal.rep
+[1]    2375 segmentation fault (core dumped)  ./mdriver -V
+Good work! 61/80 Perf index of 42. -Scott
